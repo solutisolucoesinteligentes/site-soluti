@@ -993,17 +993,46 @@ summary:focus-visible {
 
 .footer-main {
   display: grid;
-  grid-template-columns: auto 1fr auto;
-  align-items: center;
-  gap: 42px;
+  grid-template-columns: minmax(240px, 1.1fr) minmax(150px, 0.6fr) minmax(280px, 1fr);
+  align-items: start;
+  gap: 52px;
   padding-bottom: 42px;
 }
 
 .footer-brand { width: 205px; height: 52px; }
-.footer-main > p { max-width: 420px; font-size: 0.78rem; }
-.footer-links { display: flex; gap: 22px; }
+.footer-brand-column > p { max-width: 340px; margin-top: 16px; font-size: 0.78rem; }
+.footer-column-title {
+  display: block;
+  margin-bottom: 16px;
+  color: #e7effa;
+  font-size: 0.72rem;
+  font-weight: 750;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.footer-links { display: flex; align-items: flex-start; flex-direction: column; gap: 9px; }
 .footer-links a { color: #a9b9cc; font-size: 0.76rem; }
 .footer-links a:hover { color: var(--cyan); }
+.footer-address { display: flex; align-items: flex-start; gap: 14px; }
+.footer-location-icon {
+  display: inline-flex;
+  width: 40px;
+  height: 40px;
+  flex: 0 0 40px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(8, 199, 232, 0.28);
+  border-radius: 10px;
+  background: rgba(8, 199, 232, 0.08);
+  color: var(--cyan);
+  font-size: 1.25rem;
+}
+.footer-location address {
+  color: #a9b9cc;
+  font-size: 0.76rem;
+  font-style: normal;
+  line-height: 1.75;
+}
 
 .footer-bottom {
   display: flex;
@@ -1050,8 +1079,8 @@ summary:focus-visible {
   .hero-layout { grid-template-columns: 1fr 0.86fr; gap: 46px; }
   .services-grid { grid-template-columns: repeat(2, 1fr); }
   .process-layout, .about-layout { gap: 60px; }
-  .footer-main { grid-template-columns: auto 1fr; }
-  .footer-links { grid-column: 1 / -1; }
+  .footer-main { grid-template-columns: 1fr 1fr; }
+  .footer-brand-column { grid-column: 1 / -1; }
 }
 
 @media (max-width: 900px) {
@@ -1118,7 +1147,7 @@ summary:focus-visible {
   .coverage-card { padding: 34px 24px; }
   .coverage-action { padding: 22px; }
   .footer-main { grid-template-columns: 1fr; gap: 24px; }
-  .footer-links { grid-column: auto; flex-wrap: wrap; }
+  .footer-brand-column { grid-column: auto; }
   .footer-bottom { align-items: flex-start; flex-direction: column; gap: 7px; }
   .whatsapp-float strong { display: none; }
   .whatsapp-float { width: 52px; padding: 0; justify-content: center; border-radius: 50%; }
