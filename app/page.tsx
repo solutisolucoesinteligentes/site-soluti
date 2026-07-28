@@ -33,11 +33,11 @@ const services = [
   },
   {
     number: "04",
-    tag: "Conectividade",
-    title: "Redes, Wi-Fi e impressoras",
+    tag: "Impressoras",
+    title: "Instalação e suporte para impressoras",
     description:
-      "Configuração de roteadores, redes residenciais e empresariais, compartilhamento de arquivos e instalação de impressoras em rede.",
-    items: ["Redes e roteadores", "Wi-Fi estável", "Impressoras e compartilhamento"],
+      "Instalação, configuração e solução de problemas em impressoras jato de tinta, laser e térmicas, incluindo drivers e compartilhamento.",
+    items: ["Instalação e drivers", "Jato de tinta, laser e térmicas", "Configuração e compartilhamento"],
   },
   {
     number: "05",
@@ -52,7 +52,7 @@ const services = [
     tag: "Sob medida",
     title: "Montagem e consultoria",
     description:
-      "Computadores personalizados para trabalho, estudos e jogos, além de orientação para escolher equipamentos e melhorar sua infraestrutura.",
+      "Computadores personalizados para trabalho, estudos e jogos, além de orientação para escolher equipamentos e melhorar seus recursos tecnológicos.",
     items: ["PCs personalizados", "Escolha de equipamentos", "Soluções para empresas"],
   },
 ];
@@ -142,7 +142,7 @@ export default function Home() {
             </h1>
 
             <p className="hero-text">
-              Manutenção, upgrades, redes e suporte especializado para manter seus
+              Manutenção, upgrades, impressoras e suporte especializado para manter seus
               equipamentos rápidos, seguros e prontos para acompanhar a sua rotina.
             </p>
 
@@ -184,7 +184,7 @@ export default function Home() {
             <div className="compact-solutions" aria-label="Principais soluções">
               <span>Computadores</span>
               <span>Notebooks</span>
-              <span>Redes &amp; Wi-Fi</span>
+              <span>Impressoras</span>
             </div>
           </div>
         </div>
@@ -192,7 +192,7 @@ export default function Home() {
         <div className="container hero-strip">
           <span>MANUTENÇÃO</span><i />
           <span>UPGRADES</span><i />
-          <span>REDES</span><i />
+          <span>IMPRESSORAS</span><i />
           <span>SEGURANÇA</span><i />
           <span>SUPORTE</span>
         </div>
@@ -206,7 +206,7 @@ export default function Home() {
               <h2>Suporte completo para a sua tecnologia.</h2>
             </div>
             <p>
-              Da manutenção do computador à estrutura de rede, a SoluTi reúne as
+              Da manutenção do computador à instalação de sistemas e impressoras, a SoluTi reúne as
               soluções essenciais para pessoas e empresas trabalharem com mais segurança e produtividade.
             </p>
           </div>

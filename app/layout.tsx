@@ -18,7 +18,7 @@ export async function generateMetadata(): Promise<Metadata> {
     metadataBase: baseUrl,
     title: "SoluTi Tech Store | Assistência Técnica em Araranguá",
     description:
-      "Assistência técnica em computadores e notebooks, upgrades, redes, suporte remoto e soluções em tecnologia em Araranguá e região.",
+      "Assistência técnica em computadores e notebooks, upgrades, impressoras, suporte remoto e soluções em tecnologia em Araranguá e região.",
     icons: {
       icon: "/logo-soluti-transparent.png",
       shortcut: "/logo-soluti-transparent.png",

@@ -751,7 +751,7 @@ summary:focus-visible {
 .about-panel {
   position: relative;
   display: grid;
-  min-height: 520px;
+  min-height: 360px;
   place-items: center;
   overflow: hidden;
   border: 1px solid rgba(62, 112, 178, 0.16);
@@ -768,8 +768,8 @@ summary:focus-visible {
 .about-rings {
   position: relative;
   display: grid;
-  width: 250px;
-  height: 250px;
+  width: 180px;
+  height: 180px;
   place-items: center;
   border: 1px dashed rgba(44, 148, 239, 0.34);
   border-radius: 50%;
@@ -785,23 +785,23 @@ summary:focus-visible {
   content: "";
 }
 
-.about-rings::before { width: 190px; height: 190px; }
-.about-rings::after { width: 125px; height: 125px; border-color: rgba(8, 199, 232, 0.32); }
-.about-rings span:nth-child(1) { top: 27px; right: 29px; width: 9px; height: 9px; background: var(--cyan); box-shadow: 0 0 16px var(--cyan); }
-.about-rings span:nth-child(2) { bottom: 36px; left: 30px; width: 6px; height: 6px; background: var(--blue); }
+.about-rings::before { width: 136px; height: 136px; }
+.about-rings::after { width: 90px; height: 90px; border-color: rgba(8, 199, 232, 0.32); }
+.about-rings span:nth-child(1) { top: 18px; right: 21px; width: 8px; height: 8px; background: var(--cyan); box-shadow: 0 0 16px var(--cyan); }
+.about-rings span:nth-child(2) { bottom: 25px; left: 22px; width: 6px; height: 6px; background: var(--blue); }
 .about-rings span:nth-child(3) { display: none; }
 
 .about-rings strong {
   position: relative;
   z-index: 3;
   display: grid;
-  width: 80px;
-  height: 80px;
+  width: 62px;
+  height: 62px;
   place-items: center;
   border-radius: 22px;
   background: linear-gradient(135deg, var(--blue), var(--cyan));
   color: #fff;
-  font-size: 2.3rem;
+  font-size: 1.85rem;
   box-shadow: 0 0 45px rgba(17,102,237,0.38);
   transform: rotate(-360deg);
   animation: counterSpin 24s linear infinite;
@@ -1113,8 +1113,8 @@ summary:focus-visible {
   .services-grid { grid-template-columns: 1fr; }
   .service-card { min-height: 400px; padding: 26px; }
   .process-step { grid-template-columns: 44px 1fr; gap: 12px; }
-  .about-panel { min-height: 430px; }
-  .about-rings { width: 220px; height: 220px; }
+  .about-panel { min-height: 300px; }
+  .about-rings { width: 150px; height: 150px; }
   .about-points div { grid-template-columns: 1fr; gap: 5px; }
   .coverage { padding-top: 0; }
   .coverage-card { padding: 34px 24px; }
