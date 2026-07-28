@@ -167,40 +167,24 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="hero-visual" aria-label="Painel visual com soluções da SoluTi">
-            <div className="visual-window">
-              <div className="window-bar">
-                <div className="window-dots" aria-hidden="true"><span /><span /><span /></div>
-                <span>soluti.system</span>
-                <span className="online-label">ONLINE</span>
-              </div>
+          <div className="hero-visual" aria-label="Soluções em tecnologia da SoluTi">
+            <div className="compact-visual-top">
+              <span className="compact-status"><i /> Suporte ativo</span>
+              <span className="compact-code">SOLUTI_048</span>
+            </div>
 
-              <div className="visual-core">
-                <div className="orbit orbit-one" aria-hidden="true" />
-                <div className="orbit orbit-two" aria-hidden="true" />
-                <div className="orbit orbit-three" aria-hidden="true" />
-                <div className="core-mark">
-                  <span>S</span>
-                  <small>SOLUTI</small>
-                </div>
-                <div className="data-chip chip-one"><span>STATUS</span><strong>Protegido</strong></div>
-                <div className="data-chip chip-two"><span>REDE</span><strong>Estável</strong></div>
-                <div className="data-chip chip-three"><span>SISTEMA</span><strong>Otimizado</strong></div>
-              </div>
-
-              <div className="visual-footer">
-                <div><span className="status-icon">✓</span><p><strong>Suporte inteligente</strong><small>Problemas resolvidos com clareza</small></p></div>
-                <div className="tech-lines" aria-hidden="true"><span /><span /><span /><span /></div>
+            <div className="compact-visual-main">
+              <div className="compact-symbol" aria-hidden="true"><span>S</span></div>
+              <div>
+                <small>ASSISTÊNCIA TÉCNICA</small>
+                <h2>Simples, rápido e sob medida.</h2>
               </div>
             </div>
 
-            <div className="floating-card floating-card-top">
-              <span className="floating-icon">↑</span>
-              <p><small>UPGRADE</small><strong>Mais velocidade</strong></p>
-            </div>
-            <div className="floating-card floating-card-bottom">
-              <span className="floating-icon">◎</span>
-              <p><small>ATENDIMENTO</small><strong>Remoto + presencial</strong></p>
+            <div className="compact-solutions" aria-label="Principais soluções">
+              <span>Computadores</span>
+              <span>Notebooks</span>
+              <span>Redes &amp; Wi-Fi</span>
             </div>
           </div>
         </div>
