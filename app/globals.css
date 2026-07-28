@@ -96,15 +96,12 @@ summary:focus-visible {
 
 .brand {
   display: flex;
-  width: 220px;
-  height: 54px;
+  width: 235px;
+  height: 58px;
   flex-shrink: 0;
   align-items: center;
   overflow: hidden;
-  border: 1px solid rgba(25, 113, 234, 0.25);
-  border-radius: 10px;
-  background: #fff;
-  box-shadow: 0 10px 30px rgba(0, 58, 150, 0.12);
+  background: transparent;
 }
 
 .brand img {
@@ -112,6 +109,7 @@ summary:focus-visible {
   width: 100%;
   height: 100%;
   object-fit: contain;
+  transform: scale(1.48);
 }
 
 .main-nav {
@@ -1108,7 +1106,7 @@ summary:focus-visible {
   padding-bottom: 42px;
 }
 
-.footer-brand { width: 190px; height: 48px; }
+.footer-brand { width: 205px; height: 52px; }
 .footer-main > p { max-width: 420px; font-size: 0.78rem; }
 .footer-links { display: flex; gap: 22px; }
 .footer-links a { color: #a9b9cc; font-size: 0.76rem; }
@@ -1165,7 +1163,7 @@ summary:focus-visible {
 
 @media (max-width: 900px) {
   .header-inner { min-height: 74px; }
-  .brand { width: 190px; height: 48px; }
+  .brand { width: 205px; height: 52px; }
   .menu-toggle { display: flex; position: relative; z-index: 1002; }
   .menu-toggle.is-open span:first-child { transform: translateY(7px) rotate(45deg); }
   .menu-toggle.is-open span:nth-child(2) { opacity: 0; }

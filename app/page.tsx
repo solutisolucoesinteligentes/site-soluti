@@ -86,7 +86,7 @@ export default function Home() {
         <div className="container header-inner">
           <a className="brand" href="#inicio" aria-label="SoluTi Tech Store — início">
             <Image
-              src="/logo-soluti.png"
+              src="/logo-soluti-transparent.png"
               width={1983}
               height={793}
               alt="SoluTi Tech Store"
@@ -367,7 +367,7 @@ export default function Home() {
       <footer className="site-footer">
         <div className="container footer-main">
           <a className="brand footer-brand" href="#inicio" aria-label="Voltar ao início">
-            <Image src="/logo-soluti.png" width={1983} height={793} alt="SoluTi Tech Store" />
+            <Image src="/logo-soluti-transparent.png" width={1983} height={793} alt="SoluTi Tech Store" />
           </a>
           <p>Assistência técnica e soluções em tecnologia para Araranguá e região.</p>
           <div className="footer-links">

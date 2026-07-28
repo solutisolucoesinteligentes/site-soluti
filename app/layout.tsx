@@ -20,8 +20,8 @@ export async function generateMetadata(): Promise<Metadata> {
     description:
       "Assistência técnica em computadores e notebooks, upgrades, redes, suporte remoto e soluções em tecnologia em Araranguá e região.",
     icons: {
-      icon: "/logo-soluti.png",
-      shortcut: "/logo-soluti.png",
+      icon: "/logo-soluti-transparent.png",
+      shortcut: "/logo-soluti-transparent.png",
     },
     openGraph: {
       title: "SoluTi Tech Store",
