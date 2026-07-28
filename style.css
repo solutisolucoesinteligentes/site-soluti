@@ -993,7 +993,7 @@ summary:focus-visible {
 
 .footer-main {
   display: grid;
-  grid-template-columns: minmax(240px, 1.1fr) minmax(150px, 0.6fr) minmax(280px, 1fr);
+  grid-template-columns: minmax(220px, 0.85fr) minmax(130px, 0.45fr) minmax(430px, 1.4fr);
   align-items: start;
   gap: 52px;
   padding-bottom: 42px;
@@ -1013,6 +1013,11 @@ summary:focus-visible {
 .footer-links { display: flex; align-items: flex-start; flex-direction: column; gap: 9px; }
 .footer-links a { color: #a9b9cc; font-size: 0.76rem; }
 .footer-links a:hover { color: var(--cyan); }
+.footer-location-content {
+  display: grid;
+  grid-template-columns: minmax(180px, 1fr) 170px;
+  gap: 16px;
+}
 .footer-address { display: flex; align-items: flex-start; gap: 14px; }
 .footer-location-icon {
   display: inline-flex;
@@ -1033,6 +1038,39 @@ summary:focus-visible {
   font-style: normal;
   line-height: 1.75;
 }
+.footer-map {
+  position: relative;
+  overflow: hidden;
+  min-height: 116px;
+  border: 1px solid rgba(8, 199, 232, 0.24);
+  border-radius: 12px;
+  background: var(--navy-850);
+}
+.footer-map iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 116px;
+  border: 0;
+  filter: saturate(0.75) contrast(1.06);
+  pointer-events: none;
+}
+.footer-map > a {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 10px;
+  background: linear-gradient(to top, rgba(3, 7, 17, 0.9), transparent 62%);
+}
+.footer-map > a span {
+  color: #fff;
+  font-size: 0.67rem;
+  font-weight: 750;
+  letter-spacing: 0.04em;
+}
+.footer-map > a:hover span { color: var(--cyan); }
 
 .footer-bottom {
   display: flex;
@@ -1081,6 +1119,7 @@ summary:focus-visible {
   .process-layout, .about-layout { gap: 60px; }
   .footer-main { grid-template-columns: 1fr 1fr; }
   .footer-brand-column { grid-column: 1 / -1; }
+  .footer-location-content { grid-template-columns: minmax(180px, 1fr) 190px; }
 }
 
 @media (max-width: 900px) {
@@ -1116,6 +1155,9 @@ summary:focus-visible {
   .process-layout, .about-layout, .faq-layout { gap: 55px; }
   .about-panel { max-width: 640px; width: 100%; margin-inline: auto; }
   .coverage-card { gap: 38px; padding: 48px; }
+  .footer-main { grid-template-columns: 1fr; }
+  .footer-brand-column { grid-column: auto; }
+  .footer-location-content { grid-template-columns: minmax(180px, 1fr) 240px; }
 }
 
 @media (max-width: 640px) {
@@ -1148,6 +1190,8 @@ summary:focus-visible {
   .coverage-action { padding: 22px; }
   .footer-main { grid-template-columns: 1fr; gap: 24px; }
   .footer-brand-column { grid-column: auto; }
+  .footer-location-content { grid-template-columns: 1fr; }
+  .footer-map, .footer-map iframe { min-height: 150px; }
   .footer-bottom { align-items: flex-start; flex-direction: column; gap: 7px; }
   .whatsapp-float strong { display: none; }
   .whatsapp-float { width: 52px; padding: 0; justify-content: center; border-radius: 50%; }
