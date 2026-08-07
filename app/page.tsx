@@ -148,6 +148,7 @@ export default function Home() {
           <nav className={`main-nav ${menuOpen ? "is-open" : ""}`} aria-label="Menu principal">
             <a href="#inicio" onClick={closeMenu}>Início</a>
             <a href="#servicos" onClick={closeMenu}>Serviços</a>
+            <a href="#projetos" onClick={closeMenu}>Projetos</a>
             <a href="#planos" onClick={closeMenu}>Planos</a>
             <a href="#como-funciona" onClick={closeMenu}>Como funciona</a>
             <a href="#sobre" onClick={closeMenu}>Sobre</a>
@@ -268,6 +269,85 @@ export default function Home() {
                 </a>
               </article>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="cases section" id="projetos">
+        <div className="container">
+          <div className="section-heading cases-heading">
+            <div>
+              <span className="section-label">// PROJETOS SOLUTI</span>
+              <h2>Negócios reais que já deram o próximo passo.</h2>
+            </div>
+            <p>
+              Da presença digital à organização das vendas, cada projeto nasce de uma necessidade
+              real e recebe uma solução pensada para a rotina do cliente.
+            </p>
+          </div>
+
+          <div className="cases-grid">
+            <article className="case-card case-tournier">
+              <div className="case-media">
+                <Image src="/case-tournier.png" width={1672} height={941} alt="Projeto de presença digital da Tournier" />
+                <div className="case-logo case-logo-tournier">
+                  <Image src="/case-tournier-logo.png" width={1200} height={480} alt="Tournier" />
+                </div>
+                <span className="case-type">Site institucional</span>
+              </div>
+              <div className="case-content">
+                <span className="case-number">PROJETO 01</span>
+                <h3>Faça como a Tournier</h3>
+                <p>
+                  Uma página profissional para apresentar a empresa, destacar seus diferenciais,
+                  facilitar a localização e abrir um caminho direto para o WhatsApp.
+                </p>
+                <ul>
+                  <li>Identidade visual aplicada ao site</li>
+                  <li>Experiência adaptada ao celular</li>
+                  <li>Contato e localização em destaque</li>
+                </ul>
+              </div>
+            </article>
+
+            <article className="case-card case-milioti">
+              <div className="case-media case-app-media">
+                <div className="app-preview" aria-label="Prévia do sistema de pedidos da Milioti">
+                  <div className="app-preview-sidebar">
+                    <Image src="/case-milioti-logo.jpg" width={800} height={800} alt="Milioti Doces Artesanais" />
+                    <span />
+                    <span />
+                    <span />
+                  </div>
+                  <div className="app-preview-main">
+                    <div className="app-preview-top"><i /><i /><i /></div>
+                    <div className="app-preview-stats"><span /><span /><span /></div>
+                    <div className="app-preview-table"><b /><b /><b /><b /></div>
+                  </div>
+                </div>
+                <span className="case-type">Aplicativo de vendas</span>
+              </div>
+              <div className="case-content">
+                <span className="case-number">PROJETO 02</span>
+                <h3>Pedidos organizados para a Milioti</h3>
+                <p>
+                  Um aplicativo web criado para centralizar produtos, clientes e pedidos,
+                  apoiar o atendimento e simplificar tarefas do dia a dia.
+                </p>
+                <ul>
+                  <li>Cadastro de produtos e clientes</li>
+                  <li>Pedidos, histórico e relatórios</li>
+                  <li>Integração com WhatsApp</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+
+          <div className="cases-cta">
+            <div><span className="signal-dot" /><p><strong>Sua empresa pode ser a próxima.</strong><small>Conte sua ideia e descubra um caminho simples para começar.</small></p></div>
+            <a className="button button-primary" href={whatsappUrl} target="_blank" rel="noreferrer">
+              Quero um projeto para meu negócio <span aria-hidden="true">↗</span>
+            </a>
           </div>
         </div>
       </section>
@@ -476,6 +556,7 @@ export default function Home() {
           <p>Sites, vendas web e assistência técnica para pequenos negócios em Araranguá e região.</p>
           <div className="footer-links">
             <a href="#servicos">Serviços</a>
+            <a href="#projetos">Projetos</a>
             <a href="#planos">Planos</a>
             <a href="#como-funciona">Como funciona</a>
             <a href="#sobre">Sobre</a>
