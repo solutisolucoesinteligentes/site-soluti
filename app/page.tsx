@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { useEffect, useState } from "react";
 
 const whatsappUrl =
@@ -145,12 +144,11 @@ export default function Home() {
       <header className="site-header">
         <div className="container header-inner">
           <a className="brand" href="#inicio" aria-label="SoluTi Tech Store — início">
-            <Image
+            <img
               src="/logo-soluti-transparent.png"
               width={1983}
               height={793}
               alt="SoluTi Tech Store"
-              priority
             />
           </a>
 
@@ -310,7 +308,7 @@ export default function Home() {
           <div className="cases-grid">
             <article className="case-card case-tournier">
               <div className="case-media">
-                <Image src="/case-tournier-screenshot.png" width={1543} height={938} alt="Página criada para a Farmácia de Manipulação Tournier" />
+                <img src="/case-tournier-screenshot.png" width={1543} height={938} alt="Página criada para a Farmácia de Manipulação Tournier" />
                 <span className="case-type">Site institucional</span>
               </div>
               <div className="case-content">
@@ -330,7 +328,7 @@ export default function Home() {
 
             <article className="case-card case-esmalteria">
               <div className="case-media">
-                <Image src="/case-esmalteria-screenshot.png" width={1599} height={937} alt="Página criada para Dauliane Castilhos Esmalteria" />
+                <img src="/case-esmalteria-screenshot.png" width={1599} height={937} alt="Página criada para Dauliane Castilhos Esmalteria" />
                 <span className="case-type">Site profissional</span>
               </div>
               <div className="case-content">
@@ -350,7 +348,7 @@ export default function Home() {
 
             <article className="case-card case-card-wide case-milioti">
               <div className="case-media">
-                <Image src="/case-milioti-screenshot.png" width={1871} height={957} alt="Aplicativo de vendas criado para a Milioti Doces Artesanais" />
+                <img src="/case-milioti-screenshot.png" width={1871} height={957} alt="Aplicativo de vendas criado para a Milioti Doces Artesanais" />
                 <span className="case-type">Aplicativo de vendas</span>
               </div>
               <div className="case-content">
@@ -594,7 +592,7 @@ export default function Home() {
       <footer className="site-footer">
         <div className="container footer-main">
           <a className="brand footer-brand" href="#inicio" aria-label="Voltar ao início">
-            <Image src="/logo-soluti-transparent.png" width={1983} height={793} alt="SoluTi Tech Store" />
+            <img src="/logo-soluti-transparent.png" width={1983} height={793} alt="SoluTi Tech Store" />
           </a>
           <p>Sites, vendas web e assistência técnica para pequenos negócios em Araranguá e região.</p>
           <div className="footer-links">
