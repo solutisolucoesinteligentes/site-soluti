@@ -16,16 +16,16 @@ export async function generateMetadata(): Promise<Metadata> {
 
   return {
     metadataBase: baseUrl,
-    title: "SoluTi Tech Store | Assistência Técnica em Araranguá",
+    title: "SoluTi Tech Store | Sites, Vendas Web e Assistência Técnica",
     description:
-      "Assistência técnica em computadores e notebooks, upgrades, impressoras, suporte remoto e soluções em tecnologia em Araranguá e região.",
+      "Sites profissionais, catálogos com pedidos pelo WhatsApp, soluções web de vendas e assistência técnica para pequenos negócios.",
     icons: {
       icon: "/logo-soluti-transparent.png",
       shortcut: "/logo-soluti-transparent.png",
     },
     openGraph: {
       title: "SoluTi Tech Store",
-      description: "Tecnologia que resolve. Desempenho que permanece.",
+      description: "Sites, vendas web e tecnologia sob medida para pequenos negócios.",
       locale: "pt_BR",
       type: "website",
       images: [{ url: socialImageUrl, width: 1731, height: 909, alt: "SoluTi Tech Store" }],
@@ -33,7 +33,7 @@ export async function generateMetadata(): Promise<Metadata> {
     twitter: {
       card: "summary_large_image",
       title: "SoluTi Tech Store",
-      description: "Assistência técnica e soluções em tecnologia em Araranguá e região.",
+      description: "Presença digital, vendas pelo WhatsApp e assistência técnica em Araranguá e região.",
       images: [socialImageUrl],
     },
   };

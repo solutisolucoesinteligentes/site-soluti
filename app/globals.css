@@ -599,6 +599,17 @@ summary:focus-visible {
 
 .service-card:hover::before { opacity: 1; }
 
+.service-card-featured {
+  border-color: rgba(17, 102, 237, 0.28);
+  background: linear-gradient(145deg, rgba(255,255,255,0.98), rgba(230,242,255,0.88));
+  box-shadow: 0 18px 42px rgba(17, 102, 237, 0.1);
+}
+
+.service-card-featured::before {
+  height: 4px;
+  opacity: 1;
+}
+
 .service-topline {
   display: flex;
   align-items: center;

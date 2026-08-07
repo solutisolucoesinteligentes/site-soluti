@@ -5,73 +5,81 @@ import { useState } from "react";
 
 const whatsappUrl =
   "https://wa.me/5548991104708?text=Ol%C3%A1%21%20Conheci%20a%20SoluTi%20pelo%20site%20e%20gostaria%20de%20solicitar%20atendimento.";
+const siteProjectUrl =
+  "https://wa.me/5548991104708?text=Ol%C3%A1%21%20Quero%20criar%20um%20site%20profissional%20para%20o%20meu%20neg%C3%B3cio.";
+const webSalesUrl =
+  "https://wa.me/5548991104708?text=Ol%C3%A1%21%20Quero%20conhecer%20a%20solu%C3%A7%C3%A3o%20de%20cat%C3%A1logo%20e%20pedidos%20pelo%20WhatsApp.";
 
-const services = [
+const services: Array<{
+  number: string;
+  tag: string;
+  title: string;
+  description: string;
+  items: string[];
+  featured?: boolean;
+  url?: string;
+}> = [
   {
     number: "01",
-    tag: "Performance",
-    title: "Assistência técnica e upgrades",
+    tag: "Presença digital",
+    title: "Sites e páginas profissionais",
     description:
-      "Manutenção preventiva e corretiva em computadores e notebooks, com diagnóstico cuidadoso, troca de SSD, memória RAM e outros componentes.",
-    items: ["Computadores e notebooks", "SSD e memória RAM", "Otimização de desempenho"],
+      "Uma presença digital clara, rápida e com baixo custo de entrada para MEIs, autônomos e pequenos negócios apresentarem seus serviços e serem encontrados.",
+    items: ["Página adaptada ao celular", "Botão direto para o WhatsApp", "Domínio e publicação orientados"],
+    featured: true,
+    url: siteProjectUrl,
   },
   {
     number: "02",
-    tag: "Sistemas",
-    title: "Formatação e softwares",
+    tag: "Vendas online",
+    title: "Aplicativos web de vendas",
     description:
-      "Instalação e configuração de Windows, drivers, programas profissionais, certificados digitais e ferramentas essenciais para o seu dia a dia.",
-    items: ["Windows e drivers", "Programas e aplicativos", "Certificados digitais"],
+      "Soluções simples para exibir produtos, organizar um catálogo e receber pedidos pelo WhatsApp sem começar por uma loja virtual complexa.",
+    items: ["Catálogo digital", "Carrinho e pedido via WhatsApp", "Solução sob medida para o negócio"],
+    featured: true,
+    url: webSalesUrl,
   },
   {
     number: "03",
-    tag: "Proteção",
-    title: "Dados e segurança digital",
+    tag: "Equipamentos",
+    title: "Computadores e notebooks",
     description:
-      "Backup, tentativa de recuperação de arquivos, remoção de vírus e malwares, configuração de antivírus e atualização de sistemas.",
-    items: ["Backup de arquivos", "Recuperação de dados", "Vírus e malwares"],
+      "Manutenção, formatação e melhorias para seus equipamentos voltarem a funcionar com segurança e bom desempenho.",
+    items: ["Manutenção e formatação", "SSD e memória RAM", "Programas e certificados"],
   },
   {
     number: "04",
-    tag: "Impressoras",
-    title: "Instalação e suporte para impressoras",
+    tag: "Suporte",
+    title: "Atendimento remoto ou presencial",
     description:
-      "Instalação, configuração e solução de problemas em impressoras jato de tinta, laser e térmicas, incluindo drivers e compartilhamento.",
-    items: ["Instalação e drivers", "Jato de tinta, laser e térmicas", "Configuração e compartilhamento"],
-  },
-  {
-    number: "05",
-    tag: "Agilidade",
-    title: "Suporte remoto e presencial",
-    description:
-      "Soluções rápidas e seguras à distância ou atendimento diretamente no local quando o problema exige uma visita técnica.",
+      "Ajuda técnica à distância ou no local para resolver problemas do dia a dia com rapidez e orientação clara.",
     items: ["Acesso remoto seguro", "Atendimento no local", "Araranguá e região"],
   },
   {
-    number: "06",
-    tag: "Sob medida",
-    title: "Montagem e consultoria",
+    number: "05",
+    tag: "Estrutura",
+    title: "Impressoras, dados e consultoria",
     description:
-      "Computadores personalizados para trabalho, estudos e jogos, além de orientação para escolher equipamentos e melhorar seus recursos tecnológicos.",
-    items: ["PCs personalizados", "Escolha de equipamentos", "Soluções para empresas"],
+      "Instalação de impressoras, proteção de arquivos e orientação para escolher equipamentos e soluções adequadas ao negócio.",
+    items: ["Impressoras", "Backup e segurança", "Consultoria em tecnologia"],
   },
 ];
 
 const steps = [
   {
     number: "01",
-    title: "Conte o que está acontecendo",
-    text: "Fale com a SoluTi pelo WhatsApp e descreva o problema ou a necessidade.",
+    title: "Conte o que o seu negócio precisa",
+    text: "Fale com a SoluTi pelo WhatsApp e explique seu objetivo, seus produtos ou a necessidade técnica.",
   },
   {
     number: "02",
-    title: "Receba a melhor orientação",
-    text: "Avaliamos se o atendimento pode ser remoto ou se é necessário um diagnóstico presencial.",
+    title: "Receba uma proposta adequada",
+    text: "Avaliamos a solução mais simples e viável, sempre considerando a rotina e o orçamento do seu negócio.",
   },
   {
     number: "03",
-    title: "Volte a trabalhar sem complicação",
-    text: "Executamos a solução adequada com clareza, cuidado e foco na confiabilidade do equipamento.",
+    title: "Coloque a solução para funcionar",
+    text: "Criamos, configuramos e entregamos tudo com orientação clara para você divulgar, vender ou trabalhar melhor.",
   },
 ];
 
@@ -133,22 +141,22 @@ export default function Home() {
           <div className="hero-copy">
             <div className="eyebrow">
               <span className="signal-dot" />
-              Assistência técnica em Araranguá e região
+              Tecnologia para MEIs e pequenos negócios
             </div>
 
             <h1>
               Tecnologia que resolve.
-              <span>Desempenho que permanece.</span>
+              <span>Seu negócio mais digital.</span>
             </h1>
 
             <p className="hero-text">
-              Manutenção, upgrades, impressoras e suporte especializado para manter seus
-              equipamentos rápidos, seguros e prontos para acompanhar a sua rotina.
+              Sites profissionais, catálogos com pedidos pelo WhatsApp, aplicativos web de vendas
+              e suporte técnico para pequenos negócios crescerem com simplicidade e baixo custo de entrada.
             </p>
 
             <div className="hero-actions">
               <a className="button button-primary" href={whatsappUrl} target="_blank" rel="noreferrer">
-                Falar com um técnico <span aria-hidden="true">↗</span>
+                Falar sobre meu projeto <span aria-hidden="true">↗</span>
               </a>
               <a className="button button-secondary" href="#servicos">
                 Conhecer soluções <span aria-hidden="true">↓</span>
@@ -158,11 +166,11 @@ export default function Home() {
             <div className="hero-trust" aria-label="Diferenciais da SoluTi">
               <div>
                 <span className="trust-mark">01</span>
-                <p><strong>Diagnóstico claro</strong><small>Solução adequada para cada caso</small></p>
+                <p><strong>Comece sem complicação</strong><small>Soluções proporcionais ao seu negócio</small></p>
               </div>
               <div>
                 <span className="trust-mark">02</span>
-                <p><strong>Atendimento flexível</strong><small>Remoto, presencial ou no local</small></p>
+                <p><strong>Venda pelo WhatsApp</strong><small>Um caminho simples para receber pedidos</small></p>
               </div>
             </div>
           </div>
@@ -176,24 +184,24 @@ export default function Home() {
             <div className="compact-visual-main">
               <div className="compact-symbol" aria-hidden="true"><span>S</span></div>
               <div>
-                <small>ASSISTÊNCIA TÉCNICA</small>
-                <h2>Simples, rápido e sob medida.</h2>
+                <small>SOLUÇÕES DIGITAIS + SUPORTE</small>
+                <h2>Presença, vendas e tecnologia sob medida.</h2>
               </div>
             </div>
 
             <div className="compact-solutions" aria-label="Principais soluções">
-              <span>Computadores</span>
-              <span>Notebooks</span>
-              <span>Impressoras</span>
+              <span>Sites</span>
+              <span>Catálogos</span>
+              <span>Pedidos via WhatsApp</span>
             </div>
           </div>
         </div>
 
         <div className="container hero-strip">
-          <span>MANUTENÇÃO</span><i />
-          <span>UPGRADES</span><i />
-          <span>IMPRESSORAS</span><i />
-          <span>SEGURANÇA</span><i />
+          <span>SITES</span><i />
+          <span>CATÁLOGOS</span><i />
+          <span>VENDAS WEB</span><i />
+          <span>WHATSAPP</span><i />
           <span>SUPORTE</span>
         </div>
       </section>
@@ -203,17 +211,17 @@ export default function Home() {
           <div className="section-heading">
             <div>
               <span className="section-label">// SOLUÇÕES</span>
-              <h2>Suporte completo para a sua tecnologia.</h2>
+              <h2>Do suporte técnico à presença digital.</h2>
             </div>
             <p>
-              Da manutenção do computador à instalação de sistemas e impressoras, a SoluTi reúne as
-              soluções essenciais para pessoas e empresas trabalharem com mais segurança e produtividade.
+              A SoluTi ajuda MEIs, autônomos e pequenas empresas a aparecer na internet, receber pedidos
+              e manter sua tecnologia funcionando — com soluções diretas e adequadas ao orçamento.
             </p>
           </div>
 
           <div className="services-grid">
             {services.map((service) => (
-              <article className="service-card" key={service.number}>
+              <article className={`service-card ${service.featured ? "service-card-featured" : ""}`} key={service.number}>
                 <div className="service-topline">
                   <span className="service-number">{service.number}</span>
                   <span className="service-tag">{service.tag}</span>
@@ -223,8 +231,8 @@ export default function Home() {
                 <ul>
                   {service.items.map((item) => <li key={item}>{item}</li>)}
                 </ul>
-                <a href={whatsappUrl} target="_blank" rel="noreferrer">
-                  Solicitar atendimento <span aria-hidden="true">↗</span>
+                <a href={service.url ?? whatsappUrl} target="_blank" rel="noreferrer">
+                  {service.featured ? "Levar meu negócio para o digital" : "Solicitar atendimento"} <span aria-hidden="true">↗</span>
                 </a>
               </article>
             ))}
@@ -236,10 +244,10 @@ export default function Home() {
         <div className="container process-layout">
           <div className="process-intro">
             <span className="section-label">// COMO FUNCIONA</span>
-            <h2>Do problema à solução, sem complicação.</h2>
+            <h2>Da ideia à solução, sem complicação.</h2>
             <p>
-              Você não precisa entender de tecnologia para receber um atendimento
-              claro. A SoluTi identifica a necessidade e orienta o melhor caminho.
+              Você não precisa entender de tecnologia para começar. A SoluTi ouve sua
+              necessidade e transforma isso em um caminho simples, claro e acessível.
             </p>
             <a className="text-link" href={whatsappUrl} target="_blank" rel="noreferrer">
               Iniciar atendimento agora <span aria-hidden="true">→</span>
@@ -271,19 +279,19 @@ export default function Home() {
             <span className="section-label">// SOBRE A SOLUTI</span>
             <h2>Tecnologia próxima, clara e feita para funcionar.</h2>
             <p>
-              A SoluTi Tech Store oferece assistência técnica e soluções de tecnologia
-              para clientes residenciais e empresas em Araranguá e cidades vizinhas.
+              A SoluTi Tech Store oferece presença digital, soluções web de vendas e assistência
+              técnica para MEIs, autônomos, pequenos negócios e clientes residenciais.
             </p>
             <p>
               Cada atendimento começa entendendo a real necessidade do cliente. O objetivo
-              é recuperar o desempenho, proteger os dados e indicar soluções que façam sentido
-              para o uso e o orçamento de cada pessoa.
+              é entregar algo realmente útil — seja um site, um catálogo ou suporte técnico —
+              que faça sentido para a rotina e o orçamento de cada cliente.
             </p>
 
             <div className="about-points">
-              <div><strong>Atendimento remoto</strong><span>Agilidade para problemas que podem ser resolvidos à distância.</span></div>
-              <div><strong>Atendimento presencial</strong><span>Suporte técnico em Araranguá e cidades vizinhas.</span></div>
-              <div><strong>Soluções personalizadas</strong><span>Recomendações compatíveis com sua necessidade e equipamento.</span></div>
+              <div><strong>Baixo custo de entrada</strong><span>Comece com o essencial e evolua conforme o negócio crescer.</span></div>
+              <div><strong>Foco em pequenos negócios</strong><span>Soluções digitais pensadas para uma operação enxuta.</span></div>
+              <div><strong>Soluções personalizadas</strong><span>Tecnologia compatível com sua necessidade e orçamento.</span></div>
             </div>
           </div>
         </div>
@@ -313,24 +321,24 @@ export default function Home() {
         <div className="container faq-layout">
           <div>
             <span className="section-label">// DÚVIDAS FREQUENTES</span>
-            <h2>Antes de chamar o suporte.</h2>
+            <h2>Dúvidas rápidas.</h2>
           </div>
           <div className="faq-list">
             <details>
-              <summary>O atendimento pode ser feito remotamente?<span>+</span></summary>
-              <p>Sim. Instalação de programas, configurações e diversos problemas de sistema podem ser resolvidos por acesso remoto seguro.</p>
+              <summary>Quanto custa criar um site?<span>+</span></summary>
+              <p>Depende do conteúdo e das funções. A SoluTi oferece opções com baixo custo de entrada e apresenta uma proposta clara antes de começar.</p>
             </details>
             <details>
-              <summary>Vocês atendem fora de Araranguá?<span>+</span></summary>
-              <p>Sim. A SoluTi atende cidades vizinhas, conforme disponibilidade e com taxa de deslocamento informada antes da visita.</p>
+              <summary>Posso receber pedidos pelo WhatsApp?<span>+</span></summary>
+              <p>Sim. O cliente escolhe os produtos no catálogo e envia o pedido organizado diretamente para o WhatsApp da empresa.</p>
             </details>
             <details>
-              <summary>É possível melhorar um computador lento?<span>+</span></summary>
-              <p>Na maioria dos casos, sim. Após avaliar o equipamento, podemos indicar otimização, formatação ou upgrades de SSD e memória RAM.</p>
+              <summary>O site funciona bem no celular?<span>+</span></summary>
+              <p>Sim. As páginas são preparadas para celular, computador e tablet, priorizando leitura fácil e contato rápido.</p>
             </details>
             <details>
-              <summary>A recuperação de dados é garantida?<span>+</span></summary>
-              <p>A possibilidade depende do estado do dispositivo e dos arquivos. O caso precisa ser avaliado antes de confirmar a viabilidade da recuperação.</p>
+              <summary>Vocês também continuam com assistência técnica?<span>+</span></summary>
+              <p>Sim. A SoluTi continua atendendo computadores, notebooks, impressoras e suporte remoto ou presencial em Araranguá e região.</p>
             </details>
           </div>
         </div>
@@ -339,9 +347,9 @@ export default function Home() {
       <section className="final-cta">
         <div className="cta-grid" aria-hidden="true" />
         <div className="container cta-inner">
-          <span className="section-label">// PRECISA DE AJUDA?</span>
-          <h2>Seu problema de tecnologia pode começar a ser resolvido agora.</h2>
-          <p>Fale com a SoluTi pelo WhatsApp e conte o que está acontecendo.</p>
+          <span className="section-label">// VAMOS CONVERSAR?</span>
+          <h2>Seu negócio pode dar o próximo passo no digital.</h2>
+          <p>Conte sua ideia pelo WhatsApp. A SoluTi ajuda a encontrar uma forma simples de começar.</p>
           <a className="button button-light" href={whatsappUrl} target="_blank" rel="noreferrer">
             Chamar no WhatsApp <span aria-hidden="true">↗</span>
           </a>
@@ -353,7 +361,7 @@ export default function Home() {
           <a className="brand footer-brand" href="#inicio" aria-label="Voltar ao início">
             <Image src="/logo-soluti-transparent.png" width={1983} height={793} alt="SoluTi Tech Store" />
           </a>
-          <p>Assistência técnica e soluções em tecnologia para Araranguá e região.</p>
+          <p>Sites, vendas web e assistência técnica para pequenos negócios em Araranguá e região.</p>
           <div className="footer-links">
             <a href="#servicos">Serviços</a>
             <a href="#como-funciona">Como funciona</a>
