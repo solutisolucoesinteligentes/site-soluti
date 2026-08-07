@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const whatsappUrl =
   "https://wa.me/5548991104708?text=Ol%C3%A1%21%20Conheci%20a%20SoluTi%20pelo%20site%20e%20gostaria%20de%20solicitar%20atendimento.";
@@ -16,6 +16,7 @@ const plans = [
     tag: "Para começar",
     price: "497",
     monthly: "49",
+    deadline: "até 7 dias úteis",
     description: "Uma página profissional para apresentar o negócio e facilitar o contato.",
     items: ["Página única adaptada ao celular", "Serviços, localização e WhatsApp", "1 pequena atualização por mês"],
     url: "https://wa.me/5548991104708?text=Ol%C3%A1%21%20Tenho%20interesse%20no%20plano%20Presen%C3%A7a%20Digital.",
@@ -25,6 +26,7 @@ const plans = [
     tag: "Mais completo",
     price: "897",
     monthly: "79",
+    deadline: "até 10 dias úteis",
     description: "Mais conteúdo para transmitir confiança e explicar melhor seus serviços.",
     items: ["Site com páginas ou seções adicionais", "Formulário, localização e WhatsApp", "Até 2 pequenas atualizações por mês"],
     url: "https://wa.me/5548991104708?text=Ol%C3%A1%21%20Tenho%20interesse%20no%20plano%20Neg%C3%B3cio%20Profissional.",
@@ -35,6 +37,7 @@ const plans = [
     tag: "Pedidos online",
     price: "1.497",
     monthly: "99",
+    deadline: "até 15 dias úteis",
     description: "Catálogo simples para o cliente escolher e enviar o pedido pelo WhatsApp.",
     items: ["Até 30 produtos no lançamento", "Carrinho e pedido pelo WhatsApp", "Até 4 pequenas atualizações por mês"],
     url: "https://wa.me/5548991104708?text=Ol%C3%A1%21%20Tenho%20interesse%20no%20plano%20Cat%C3%A1logo%20que%20Vende.",
@@ -116,6 +119,24 @@ const steps = [
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [campaignOrigin, setCampaignOrigin] = useState("");
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const source = params.get("utm_source");
+    const campaign = params.get("utm_campaign");
+    const medium = params.get("utm_medium");
+    const origin = [source, medium, campaign].filter(Boolean).join(" / ");
+    setCampaignOrigin(origin);
+  }, []);
+
+  const campaignUrl = (url: string) => {
+    if (!campaignOrigin) return url;
+    const target = new URL(url);
+    const message = target.searchParams.get("text") ?? "";
+    target.searchParams.set("text", `${message}\n\nOrigem da campanha: ${campaignOrigin}`);
+    return target.toString();
+  };
 
   const closeMenu = () => setMenuOpen(false);
 
@@ -154,7 +175,7 @@ export default function Home() {
             <a href="#sobre" onClick={closeMenu}>Sobre</a>
             <a
               className="nav-cta"
-              href={whatsappUrl}
+              href={campaignUrl(whatsappUrl)}
               target="_blank"
               rel="noreferrer"
               onClick={closeMenu}
@@ -188,7 +209,7 @@ export default function Home() {
             </p>
 
             <div className="hero-actions">
-              <a className="button button-primary" href={whatsappUrl} target="_blank" rel="noreferrer">
+              <a className="button button-primary" href={campaignUrl(whatsappUrl)} target="_blank" rel="noreferrer">
                 Falar sobre meu projeto <span aria-hidden="true">↗</span>
               </a>
               <a className="button button-secondary" href="#servicos">
@@ -264,7 +285,7 @@ export default function Home() {
                 <ul>
                   {service.items.map((item) => <li key={item}>{item}</li>)}
                 </ul>
-                <a href={service.url ?? whatsappUrl} target="_blank" rel="noreferrer">
+                <a href={campaignUrl(service.url ?? whatsappUrl)} target="_blank" rel="noreferrer">
                   {service.featured ? "Levar meu negócio para o digital" : "Solicitar atendimento"} <span aria-hidden="true">↗</span>
                 </a>
               </article>
@@ -350,7 +371,7 @@ export default function Home() {
 
           <div className="cases-cta">
             <div><span className="signal-dot" /><p><strong>Sua empresa pode ser a próxima.</strong><small>Conte sua ideia e descubra um caminho simples para começar.</small></p></div>
-            <a className="button button-primary" href={whatsappUrl} target="_blank" rel="noreferrer">
+            <a className="button button-primary" href={campaignUrl(whatsappUrl)} target="_blank" rel="noreferrer">
               Quero um projeto para meu negócio <span aria-hidden="true">↗</span>
             </a>
           </div>
@@ -385,10 +406,11 @@ export default function Home() {
                   <span>Mensalidade</span>
                   <strong>R$ {plan.monthly}<small>/mês</small></strong>
                 </div>
+                <div className="delivery-time"><span>Prazo estimado</span><strong>{plan.deadline}</strong></div>
                 <ul>
                   {plan.items.map((item) => <li key={item}>{item}</li>)}
                 </ul>
-                <a className="button button-primary" href={plan.url} target="_blank" rel="noreferrer">
+                <a className="button button-primary" href={campaignUrl(plan.url)} target="_blank" rel="noreferrer">
                   Quero este plano <span aria-hidden="true">↗</span>
                 </a>
               </article>
@@ -406,7 +428,7 @@ export default function Home() {
               <strong>R$ 2.497</strong>
               <span>Mensalidade definida conforme os recursos.</span>
             </div>
-            <a className="button button-secondary" href={webSalesUrl} target="_blank" rel="noreferrer">
+            <a className="button button-secondary" href={campaignUrl(webSalesUrl)} target="_blank" rel="noreferrer">
               Solicitar proposta <span aria-hidden="true">↗</span>
             </a>
           </div>
@@ -428,6 +450,14 @@ export default function Home() {
               <span>04</span>
               <div><h3>Alterações adicionais</h3><p>Atualizações não são acumulativas. Novas páginas, mudanças de layout, integrações, e-mail profissional e novas funções recebem orçamento separado.</p></div>
             </article>
+            <article>
+              <span>05</span>
+              <div><h3>Pagamento e prazo</h3><p>50% na contratação e 50% na entrega. O prazo começa após o envio de todos os textos, imagens e informações necessários.</p></div>
+            </article>
+            <article>
+              <span>06</span>
+              <div><h3>Cancelamento e entrega</h3><p>A mensalidade pode ser cancelada com 30 dias de aviso. Após a quitação, a SoluTi organiza a entrega do projeto; hospedagem e suporte são encerrados no fim do período contratado.</p></div>
+            </article>
           </div>
 
           <p className="pricing-note">
@@ -446,7 +476,7 @@ export default function Home() {
               Você não precisa entender de tecnologia para começar. A SoluTi ouve sua
               necessidade e transforma isso em um caminho simples, claro e acessível.
             </p>
-            <a className="text-link" href={whatsappUrl} target="_blank" rel="noreferrer">
+            <a className="text-link" href={campaignUrl(whatsappUrl)} target="_blank" rel="noreferrer">
               Iniciar atendimento agora <span aria-hidden="true">→</span>
             </a>
           </div>
@@ -507,7 +537,7 @@ export default function Home() {
           <div className="coverage-action">
             <span className="location-pulse" aria-hidden="true">◎</span>
             <p><small>BASE DE ATENDIMENTO</small><strong>Araranguá / SC</strong></p>
-            <a className="button button-primary" href={whatsappUrl} target="_blank" rel="noreferrer">
+            <a className="button button-primary" href={campaignUrl(whatsappUrl)} target="_blank" rel="noreferrer">
               Consultar atendimento <span aria-hidden="true">↗</span>
             </a>
           </div>
@@ -537,6 +567,14 @@ export default function Home() {
               <summary>Vocês também continuam com assistência técnica?<span>+</span></summary>
               <p>Sim. A SoluTi continua atendendo computadores, notebooks, impressoras e suporte remoto ou presencial em Araranguá e região.</p>
             </details>
+            <details>
+              <summary>Como funciona o pagamento e o prazo?<span>+</span></summary>
+              <p>A implantação é paga em duas etapas: 50% na contratação e 50% na entrega. O prazo começa quando a SoluTi recebe todos os textos, imagens e informações do projeto.</p>
+            </details>
+            <details>
+              <summary>Posso cancelar a mensalidade?<span>+</span></summary>
+              <p>Sim, com aviso de 30 dias. Após a quitação, a SoluTi organiza a entrega do projeto. A hospedagem, a manutenção e o suporte terminam ao final do período contratado.</p>
+            </details>
           </div>
         </div>
       </section>
@@ -547,7 +585,7 @@ export default function Home() {
           <span className="section-label">// VAMOS CONVERSAR?</span>
           <h2>Seu negócio pode dar o próximo passo no digital.</h2>
           <p>Conte sua ideia pelo WhatsApp. A SoluTi ajuda a encontrar uma forma simples de começar.</p>
-          <a className="button button-light" href={whatsappUrl} target="_blank" rel="noreferrer">
+          <a className="button button-light" href={campaignUrl(whatsappUrl)} target="_blank" rel="noreferrer">
             Chamar no WhatsApp <span aria-hidden="true">↗</span>
           </a>
         </div>
@@ -565,7 +603,7 @@ export default function Home() {
             <a href="#planos">Planos</a>
             <a href="#como-funciona">Como funciona</a>
             <a href="#sobre">Sobre</a>
-            <a href={whatsappUrl} target="_blank" rel="noreferrer">WhatsApp</a>
+            <a href={campaignUrl(whatsappUrl)} target="_blank" rel="noreferrer">WhatsApp</a>
           </div>
         </div>
         <div className="container footer-bottom">
@@ -574,7 +612,7 @@ export default function Home() {
         </div>
       </footer>
 
-      <a className="whatsapp-float" href={whatsappUrl} target="_blank" rel="noreferrer" aria-label="Falar com a SoluTi pelo WhatsApp">
+      <a className="whatsapp-float" href={campaignUrl(whatsappUrl)} target="_blank" rel="noreferrer" aria-label="Falar com a SoluTi pelo WhatsApp">
         <span aria-hidden="true">✦</span>
         <strong>WhatsApp</strong>
       </a>
