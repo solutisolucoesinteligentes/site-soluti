@@ -289,10 +289,7 @@ export default function Home() {
           <div className="cases-grid">
             <article className="case-card case-tournier">
               <div className="case-media">
-                <Image src="/case-tournier.png" width={1672} height={941} alt="Projeto de presença digital da Tournier" />
-                <div className="case-logo case-logo-tournier">
-                  <Image src="/case-tournier-logo.png" width={1200} height={480} alt="Tournier" />
-                </div>
+                <Image src="/case-tournier-screenshot.png" width={1543} height={938} alt="Página criada para a Farmácia de Manipulação Tournier" />
                 <span className="case-type">Site institucional</span>
               </div>
               <div className="case-content">
@@ -310,25 +307,33 @@ export default function Home() {
               </div>
             </article>
 
-            <article className="case-card case-milioti">
-              <div className="case-media case-app-media">
-                <div className="app-preview" aria-label="Prévia do sistema de pedidos da Milioti">
-                  <div className="app-preview-sidebar">
-                    <Image src="/case-milioti-logo.jpg" width={800} height={800} alt="Milioti Doces Artesanais" />
-                    <span />
-                    <span />
-                    <span />
-                  </div>
-                  <div className="app-preview-main">
-                    <div className="app-preview-top"><i /><i /><i /></div>
-                    <div className="app-preview-stats"><span /><span /><span /></div>
-                    <div className="app-preview-table"><b /><b /><b /><b /></div>
-                  </div>
-                </div>
-                <span className="case-type">Aplicativo de vendas</span>
+            <article className="case-card case-esmalteria">
+              <div className="case-media">
+                <Image src="/case-esmalteria-screenshot.png" width={1599} height={937} alt="Página criada para Dauliane Castilhos Esmalteria" />
+                <span className="case-type">Site profissional</span>
               </div>
               <div className="case-content">
                 <span className="case-number">PROJETO 02</span>
+                <h3>Elegância digital para a Esmalteria</h3>
+                <p>
+                  Uma página sofisticada para apresentar a profissional, destacar serviços,
+                  mostrar sua experiência e facilitar o agendamento pelo WhatsApp.
+                </p>
+                <ul>
+                  <li>Visual alinhado à marca</li>
+                  <li>Serviços, galeria e cursos</li>
+                  <li>Agendamento em destaque</li>
+                </ul>
+              </div>
+            </article>
+
+            <article className="case-card case-card-wide case-milioti">
+              <div className="case-media">
+                <Image src="/case-milioti-screenshot.png" width={1871} height={957} alt="Aplicativo de vendas criado para a Milioti Doces Artesanais" />
+                <span className="case-type">Aplicativo de vendas</span>
+              </div>
+              <div className="case-content">
+                <span className="case-number">PROJETO 03</span>
                 <h3>Pedidos organizados para a Milioti</h3>
                 <p>
                   Um aplicativo web criado para centralizar produtos, clientes e pedidos,
