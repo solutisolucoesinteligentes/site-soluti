@@ -10,6 +10,37 @@ const siteProjectUrl =
 const webSalesUrl =
   "https://wa.me/5548991104708?text=Ol%C3%A1%21%20Quero%20conhecer%20a%20solu%C3%A7%C3%A3o%20de%20cat%C3%A1logo%20e%20pedidos%20pelo%20WhatsApp.";
 
+const plans = [
+  {
+    name: "Presença Digital",
+    tag: "Para começar",
+    price: "497",
+    monthly: "49",
+    description: "Uma página profissional para apresentar o negócio e facilitar o contato.",
+    items: ["Página única adaptada ao celular", "Serviços, localização e WhatsApp", "1 pequena atualização por mês"],
+    url: "https://wa.me/5548991104708?text=Ol%C3%A1%21%20Tenho%20interesse%20no%20plano%20Presen%C3%A7a%20Digital.",
+  },
+  {
+    name: "Negócio Profissional",
+    tag: "Mais completo",
+    price: "897",
+    monthly: "79",
+    description: "Mais conteúdo para transmitir confiança e explicar melhor seus serviços.",
+    items: ["Site com páginas ou seções adicionais", "Formulário, localização e WhatsApp", "Até 2 pequenas atualizações por mês"],
+    url: "https://wa.me/5548991104708?text=Ol%C3%A1%21%20Tenho%20interesse%20no%20plano%20Neg%C3%B3cio%20Profissional.",
+    featured: true,
+  },
+  {
+    name: "Catálogo que Vende",
+    tag: "Pedidos online",
+    price: "1.497",
+    monthly: "99",
+    description: "Catálogo simples para o cliente escolher e enviar o pedido pelo WhatsApp.",
+    items: ["Até 30 produtos no lançamento", "Carrinho e pedido pelo WhatsApp", "Até 4 pequenas atualizações por mês"],
+    url: "https://wa.me/5548991104708?text=Ol%C3%A1%21%20Tenho%20interesse%20no%20plano%20Cat%C3%A1logo%20que%20Vende.",
+  },
+];
+
 const services: Array<{
   number: string;
   tag: string;
@@ -117,6 +148,7 @@ export default function Home() {
           <nav className={`main-nav ${menuOpen ? "is-open" : ""}`} aria-label="Menu principal">
             <a href="#inicio" onClick={closeMenu}>Início</a>
             <a href="#servicos" onClick={closeMenu}>Serviços</a>
+            <a href="#planos" onClick={closeMenu}>Planos</a>
             <a href="#como-funciona" onClick={closeMenu}>Como funciona</a>
             <a href="#sobre" onClick={closeMenu}>Sobre</a>
             <a
@@ -237,6 +269,86 @@ export default function Home() {
               </article>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="pricing section" id="planos">
+        <div className="container">
+          <div className="section-heading pricing-heading">
+            <div>
+              <span className="section-label">// PLANOS DIGITAIS</span>
+              <h2>Comece com um investimento que cabe no negócio.</h2>
+            </div>
+            <p>
+              Valores claros para quem está começando. A implantação é paga uma vez e a mensalidade
+              mantém sua solução hospedada, segura e acompanhada pela SoluTi.
+            </p>
+          </div>
+
+          <div className="pricing-grid">
+            {plans.map((plan) => (
+              <article className={`pricing-card ${plan.featured ? "pricing-card-featured" : ""}`} key={plan.name}>
+                <span className="pricing-tag">{plan.tag}</span>
+                <h3>{plan.name}</h3>
+                <p className="pricing-description">{plan.description}</p>
+                <div className="price-block">
+                  <span>Implantação</span>
+                  <strong><small>R$</small>{plan.price}</strong>
+                  <em>pagamento único</em>
+                </div>
+                <div className="monthly-price">
+                  <span>Mensalidade</span>
+                  <strong>R$ {plan.monthly}<small>/mês</small></strong>
+                </div>
+                <ul>
+                  {plan.items.map((item) => <li key={item}>{item}</li>)}
+                </ul>
+                <a className="button button-primary" href={plan.url} target="_blank" rel="noreferrer">
+                  Quero este plano <span aria-hidden="true">↗</span>
+                </a>
+              </article>
+            ))}
+          </div>
+
+          <div className="custom-plan">
+            <div>
+              <span className="section-label">// PRECISA DE MAIS?</span>
+              <h3>Aplicativo web personalizado</h3>
+              <p>Cadastros, pedidos, área administrativa, integrações e outros recursos sob medida.</p>
+            </div>
+            <div className="custom-plan-price">
+              <small>Implantação a partir de</small>
+              <strong>R$ 2.497</strong>
+              <span>Mensalidade definida conforme os recursos.</span>
+            </div>
+            <a className="button button-secondary" href={webSalesUrl} target="_blank" rel="noreferrer">
+              Solicitar proposta <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+
+          <div className="pricing-details">
+            <article>
+              <span>01</span>
+              <div><h3>Implantação</h3><p>Cobre a criação, configuração e publicação inicial do projeto.</p></div>
+            </article>
+            <article>
+              <span>02</span>
+              <div><h3>Mensalidade</h3><p>Cobre hospedagem, segurança, manutenção técnica, suporte e as pequenas atualizações previstas no plano.</p></div>
+            </article>
+            <article>
+              <span>03</span>
+              <div><h3>Domínio personalizado</h3><p>Endereços como suaempresa.com.br são opcionais e cobrados separadamente, normalmente por ano e preferencialmente em nome do cliente.</p></div>
+            </article>
+            <article>
+              <span>04</span>
+              <div><h3>Alterações adicionais</h3><p>Atualizações não são acumulativas. Novas páginas, mudanças de layout, integrações, e-mail profissional e novas funções recebem orçamento separado.</p></div>
+            </article>
+          </div>
+
+          <p className="pricing-note">
+            Pequena atualização é a troca de um texto, imagem, preço, telefone ou informação já existente.
+            Os valores podem mudar quando o projeto exigir recursos fora do escopo indicado.
+          </p>
         </div>
       </section>
 
@@ -364,6 +476,7 @@ export default function Home() {
           <p>Sites, vendas web e assistência técnica para pequenos negócios em Araranguá e região.</p>
           <div className="footer-links">
             <a href="#servicos">Serviços</a>
+            <a href="#planos">Planos</a>
             <a href="#como-funciona">Como funciona</a>
             <a href="#sobre">Sobre</a>
             <a href={whatsappUrl} target="_blank" rel="noreferrer">WhatsApp</a>
